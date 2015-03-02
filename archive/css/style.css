@@ -1,0 +1,393 @@
+.top-nav{
+	margin-top:15%;
+}
+
+
+.top-nav .navbar .nav li a{
+	font-size:1.6em;
+	font-family: 'Raleway', sans-serif;
+	font-weight:lighter;
+	background-color:transparent;
+	border:none;
+	background-image:none;
+	box-shadow:none;
+	-webkit-box-shadow:none;
+}
+
+
+.top-nav .navbar .nav li .to-hide {
+	color:transparent;
+}
+
+
+.top-nav .navbar .nav .active a{
+	background-color:transparent;
+}
+
+.top-nav .navbar .nav .active a:hover{
+	background-color:transparent;
+
+}
+
+
+.top-nav hr{
+	position:relative;
+	border-top:1px dashed #819AD5;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.top-nav .logo-line .horiz-line hr{
+	vertical-align:middle;
+	margin: 100px 0px 0px 0px;
+}
+
+.top-nav .navbar{
+	z-index:1;
+	position:relative;
+	background-image:none;
+	background-color:transparent;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	border-radius:0px;
+	border:none;
+	margin-left:auto;
+	margin-right:auto;
+	float:none;
+	margin-top:-65px;
+}
+
+
+
+
+.top-nav .img-circle{
+	padding:0px;
+	float:none;
+	z-index:99;
+	position:relative;
+	display:block;
+	max-width:100%;
+}
+
+
+
+.tumblr_posts{
+	font-family:"Raleway", sans-serif;
+	font-size:1.2em;
+	max-width:65%;
+	margin-left:auto;
+	margin-right:auto;
+	list-style: none;
+	padding:0px;
+	margin-bottom:100px;
+}
+
+.tumblr_title{
+	text-transform: lowercase;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.2em;
+	margin-top:100px;
+	margin-bottom:40px;
+}
+
+.tumblr_body p{
+	line-height:1.7em;
+	margin-bottom:20px;
+}
+
+.tumblr_body p img{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+.footer hr{
+	border-top:1px dashed #819AD5;
+}
+
+.footer a img{
+	max-width:25px;
+	vertical-align:center;
+}
+
+.social-links{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	margin-top:10px;
+}
+
+.social-links a{
+	margin-left:5px;
+	margin-right:5px;
+}
+
+.footer p{
+	float:right;
+	color: #B5BAC7
+}
+
+
+
+.resume .modal .modal-dialog .modal-content .modal-header{
+	width:auto;
+	border-bottom:none;
+}
+
+.modal-footer{
+	display:none;
+}
+
+.resume .modal .modal-dialog{
+	width:auto;
+}
+
+.resume .modal .modal-dialog .modal-content .modal-body{
+	padding:0px;
+}
+
+.resume .modal .modal-dialog .modal-content .modal-body img{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+/*projects*/
+
+.project-section {
+	margin-top:100px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	max-width:70%;
+}
+
+.projects{
+	margin-bottom:100px;
+}
+
+.project-section .proj-logo img{
+	max-width:20%;
+	margin-bottom:15px;
+
+}
+
+.project-section .proj-description p{
+	width:100%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:15px;
+	font-family:'Raleway', sans-serif;
+	font-size:1.2em;
+	line-height:1.7em;
+	padding-left:25px;
+}
+
+.project-section .proj-description img{
+	max-width:70%;
+	margin-bottom:15px;
+	padding-left:25px;
+
+}
+
+.about{
+	margin-top:100px;
+	display:block;
+	max-width:70%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:100px;
+}
+
+.about p{
+	width:100%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:15px;
+	font-family:"Raleway", sans-serif;
+	font-size:1.2em;
+	line-height:1.6em;
+	padding-left:25px;
+}
+
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
+
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 992px) and (max-width: 1199px) { 
+	.top-nav .logo-line .horiz-line{
+		margin-top:-25px;
+	}
+ }
+
+ @media (min-width: 768px) and (max-width: 991px) {
+ 	.top-nav .logo-line .horiz-line{
+ 		margin-top:-80px;
+ 	}
+
+ 	.top-nav .logo-line .img-circle{
+ 		margin-top:-45px;
+ 	}
+
+ 	.top-nav .navbar-collapse .row{
+ 		margin-top:25px;
+ 	}
+
+ 	.top-nav .navbar-collapse .first-set{
+ 		margin-left:20%;
+ 	}
+
+ 	.top-nav .navbar-collapse .second-set{
+ 		padding-left:0px;
+ 	}
+ 	.tumblr_posts{
+	max-width:75%;
+}
+ }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+.navbar-toggle {
+position: relative;
+float: right;
+padding: 9px 10px;
+margin-top: 8px;
+margin-right: 15px;
+margin-bottom: 8px;
+background-color: transparent;
+border: 1px solid transparent;
+border-radius: 4px;
+}
+
+.button{
+	display:inline-block;
+	margin-top:10px;
+}
+
+.top-nav .logo-line .img-circle{
+	max-width:16%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.top-nav .logo-line .left-line{
+	display:none;
+}
+
+.footer .footer-line .right-line{
+	display:none;
+}
+
+.top-nav .navbar-header .navbar-toggle{
+	float:right;
+	margin-top:15px;
+}
+.top-nav .logo-line #top-right-line{
+	margin-top:0px;
+}
+
+.top-nav{
+	margin-top:5px;
+}
+
+.top-nav .navbar-collapse{
+	border:none;
+}
+
+
+
+.top-nav .logo-line .logo-img{
+	padding-right:0px;
+}
+
+.tumblr_posts{
+	max-width:75%;
+}
+
+.tumblr_body p{
+	line-height:1.6em;
+	margin-bottom:20px;
+}
+
+.tumblr_body p img{
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+}
+
+.footer .social-links{
+	padding-right:0px;
+	margin-bottom:20px;
+}
+
+.footer .footer-line{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+
+
+.project-section {
+	max-width:90%;
+}
+
+.project-section .proj-logo img{
+	max-width:40%;
+}
+
+
+
+.project-section .proj-description img{
+	max-width:100%;
+}
+
+.resume .modal .modal-dialog .modal-content .modal-body img{
+	max-width:100%;
+}
+
+
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	.navbar-toggle {
+position: relative;
+float: right;
+padding: 9px 10px;
+margin-top: 8px;
+margin-right: 15px;
+margin-bottom: 8px;
+background-color: transparent;
+border: 1px solid transparent;
+border-radius: 4px;
+}
+
+.button{
+	display:inline-block;
+	
+}
+}
