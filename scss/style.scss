@@ -1,0 +1,74 @@
+@-webkit-keyframes spinner {
+from {
+ -webkit-transform:rotate3d(0,0, 1, 0deg);
+}
+
+to {
+ -webkit-transform:rotate3d(0,0,1, 360deg);
+}
+}
+
+@keyframes invert {
+  0% {
+    transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg); }
+
+  100% {
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg); } }
+
+$planetColors: chocolate, burlyWood, cornflowerBlue, fireBrick, powderBlue, khaki, dodgerBlue, mediumBlue, coral;
+
+
+body{
+  overflow-x: hidden;
+}
+
+.planet-container{
+  -webkit-transform-origin: 50% 50%;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  border-radius:50%;
+  border:1px solid black;
+  -webkit-transform-style: preserve-3d;
+}
+
+#planets{
+  -webkit-transform:rotateX(75deg);
+  -webkit-transform-style: preserve-3d;
+}
+
+.planet{
+  border-radius:50%;
+  background-size:cover;
+  background-position:center;
+  position:absolute;
+  right:0;
+  top:0;
+  -webkit-transform-style: preserve-3d;
+  -webkit-animation: invert;
+}
+
+.sun{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:50px;
+  height:50px;
+  background-color:orange;
+  border-radius:50%;
+  margin:auto;
+  -webkit-transform-style: preserve-3d;
+}
+
+@for $i from 1 through length($planetColors) {
+  .planet-container:nth-child(#{$i+1}) {
+    .planet{
+      background-color:nth($planetColors, $i);
+    }
+  }
+}
