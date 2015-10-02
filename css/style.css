@@ -21,13 +21,7 @@ body {
   right: 0;
   bottom: 0;
   margin: auto;
-  border-radius: 50%;
-  border: 1px solid black;
-  -webkit-transform-style: preserve-3d; }
-
-#planets {
-  -webkit-transform: rotateX(75deg);
-  -webkit-transform-style: preserve-3d; }
+  border-radius: 50%; }
 
 .planet {
   border-radius: 50%;
@@ -35,9 +29,7 @@ body {
   background-position: center;
   position: absolute;
   right: 0;
-  top: 0;
-  -webkit-transform-style: preserve-3d;
-  -webkit-animation: invert; }
+  top: 0; }
 
 .sun {
   position: absolute;
@@ -49,8 +41,7 @@ body {
   height: 50px;
   background-color: orange;
   border-radius: 50%;
-  margin: auto;
-  -webkit-transform-style: preserve-3d; }
+  margin: auto; }
 
 .planet-container:nth-child(2) .planet {
   background-color: chocolate; }
