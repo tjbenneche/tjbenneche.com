@@ -8,11 +8,11 @@ gulp.task('default', ['watch'], function() {
 });
 
 gulp.task('sass', function() {
-  gulp.src('scss/*.scss').pipe(sass()).pipe(gulp.dest('css'));
+  gulp.src('scss/*.scss').pipe(sass()).pipe(gulp.dest('public/css'));
 });
 
 gulp.task('coffee', function() {
-  gulp.src('coffee/*.coffee').pipe(coffee()).pipe(gulp.dest('js'));
+  gulp.src('coffee/*.coffee').pipe(coffee()).pipe(gulp.dest('public/js'));
 });
 
 gulp.task('jade', function() {
@@ -20,7 +20,7 @@ gulp.task('jade', function() {
       .pipe(jade({
           pretty: true,  // uncompressed
       }))
-      .pipe(gulp.dest('./'));
+      .pipe(gulp.dest('public/'));
 });
 
 gulp.task('watch', function() {
