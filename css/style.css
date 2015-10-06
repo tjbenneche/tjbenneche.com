@@ -1,10 +1,8 @@
-@-webkit-keyframes spinner {
+@keyframes spinner {
   from {
-    transform: rotate3d(0, 0, 1, 0deg);
-    -webkit-transform: rotate3d(0, 0, 1, 0deg); }
+    transform: rotate3d(0, 0, 1, 0deg); }
   to {
-    transform: rotate3d(0, 0, 1, 360deg);
-    -webkit-transform: rotate3d(0, 0, 1, 360deg); } }
+    transform: rotate3d(0, 0, 1, 360deg); } }
 
 @keyframes invert {
   0% {
@@ -16,7 +14,7 @@ body {
   overflow-x: hidden; }
 
 .planet-container {
-  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
   position: absolute;
   top: 0;
   left: 0;

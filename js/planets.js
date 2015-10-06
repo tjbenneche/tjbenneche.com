@@ -1,7 +1,9 @@
 (function() {
-  var dataFromPlanets, printPlanets, rotatePlanets, sizePlanets, sortable, spacePlanets;
+  var dataFromPlanets, planetContainers, printPlanets, rotatePlanets, sizePlanets, sortable, spacePlanets;
 
   sortable = [];
+
+  planetContainers = void 0;
 
   dataFromPlanets = function(data) {
     var distance, name, planet, revTime, size;
@@ -19,60 +21,78 @@
   };
 
   printPlanets = function() {
-    var i;
+    var childNode, i, node;
     i = 0;
     while (i < sortable.length) {
-      $('#planets').append('<div class="planet-container"><div class="planet ' + sortable[i][0] + '" data-distance=' + sortable[i][1] + ' data-size=' + sortable[i][2] + '" data-rev="' + sortable[i][3] + '"></div></div>');
+      node = document.createElement('DIV');
+      childNode = document.createElement('DIV');
+      node.className = 'planet-container';
+      childNode.className = 'planet ' + sortable[i][0];
+      childNode.dataset.distance = sortable[i][1];
+      childNode.dataset.size = sortable[i][2];
+      childNode.dataset.rev = sortable[i][3];
+      node.appendChild(childNode);
+      document.getElementById('planets').appendChild(node);
       i++;
     }
+    planetContainers = document.getElementsByClassName('planet-container');
     return sizePlanets();
   };
 
-  $(function() {
-    return $.ajax({
-      method: 'GET',
-      url: 'data/planets.json',
-      dataType: 'json',
-      success: function(data) {
-        dataFromPlanets(data);
+  document.addEventListener('DOMContentLoaded', function(e) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.open('GET', 'data/planets.json', true);
+    xhttp.send();
+    return xhttp.onreadystatechange = function() {
+      var data;
+      if (xhttp.readyState === 4 && xhttp.status === 200) {
+        data = JSON.parse(xhttp.responseText);
+        return dataFromPlanets(data);
       }
-    });
+    };
   });
 
   sizePlanets = function() {
-    $.each($('.planet'), function() {
-      var _this, width;
-      _this = $(this);
-      width = parseInt(_this.attr('data-size')) / 700;
-      console.log(width);
-      _this.css('width', width).css('height', width);
-    });
+    var _this, i, width;
+    i = 0;
+    while (i < planetContainers.length) {
+      _this = planetContainers[i];
+      width = parseInt(_this.children[0].dataset.size) / 700;
+      _this.children[0].style.width = width + 'px';
+      _this.children[0].style.height = width + 'px';
+      i++;
+    }
     return spacePlanets();
   };
 
   spacePlanets = function() {
-    $.each($('.planet-container'), function() {
-      var _this, width;
-      _this = $(this);
-      width = _this.find('.planet').attr('data-distance') / 1000000;
-      _this.css('width', width).css('height', width);
-    });
+    var _this, i, width;
+    i = 0;
+    while (i < planetContainers.length) {
+      _this = planetContainers[i];
+      width = _this.children[0].dataset.distance / 1000000;
+      _this.style.width = width + 'px';
+      _this.style.height = width + 'px';
+      i++;
+    }
     return rotatePlanets();
   };
 
   rotatePlanets = function() {
-    return $.each($('.planet-container'), function() {
-      var _this, revTime;
-      _this = $(this);
-      revTime = _this.find('.planet').attr('data-rev') * 3 + 's';
-      console.log(revTime);
-      return _this.css({
-        '-webkit-animation': 'spinner',
-        '-webkit-animation-duration': revTime,
-        '-webkit-animation-iteration-count': 'infinite',
-        '-webkit-animation-timing-function': 'linear'
-      });
-    });
+    var _this, i, results, revTime;
+    i = 0;
+    results = [];
+    while (i < planetContainers.length) {
+      _this = planetContainers[i];
+      revTime = _this.children[0].dataset.rev * 3 + 's';
+      _this.style.animation = 'spinner';
+      _this.style.animationDuration = revTime;
+      _this.style.animationIterationCount = 'infinite';
+      _this.style.animationTimingFunction = 'linear';
+      results.push(i++);
+    }
+    return results;
   };
 
 }).call(this);

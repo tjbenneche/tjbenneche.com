@@ -1,4 +1,5 @@
 sortable = []
+planetContainers = undefined
 
 dataFromPlanets = (data) ->
   for planet of data.planets
@@ -14,51 +15,56 @@ dataFromPlanets = (data) ->
 printPlanets = () ->
   i = 0
   while i < sortable.length
-    $('#planets').append '<div class="planet-container"><div class="planet ' + sortable[i][0] + '" data-distance=' + sortable[i][1] + ' data-size=' + sortable[i][2] + '" data-rev="' + sortable[i][3] + '"></div></div>'
+    node = document.createElement('DIV')
+    childNode = document.createElement('DIV')
+    node.className = 'planet-container'
+    childNode.className = 'planet ' + sortable[i][0]
+    childNode.dataset.distance = sortable[i][1]
+    childNode.dataset.size = sortable[i][2]
+    childNode.dataset.rev = sortable[i][3]
+    node.appendChild(childNode)
+    document.getElementById('planets').appendChild(node)
     i++
+  planetContainers = document.getElementsByClassName('planet-container')
   sizePlanets()
 
-$ ->
-  $.ajax
-    method: 'GET',
-    url: 'data/planets.json'
-    dataType: 'json',
-    success: (data) ->
+document.addEventListener 'DOMContentLoaded', (e) ->
+  xhttp = new XMLHttpRequest()
+  xhttp.open 'GET', 'data/planets.json', true
+  xhttp.send()
+  xhttp.onreadystatechange = ->
+    if xhttp.readyState == 4 and xhttp.status == 200
+      data = JSON.parse(xhttp.responseText)
       dataFromPlanets(data)
-      return
 
-  # $.ajax
-  #   method: 'GET',
-  #   url: 'http://nssdc.gsfc.nasa.gov/planetary/factsheet/'
-  #   dataType: 'jsonp',
-  #   success: (data) ->
-  #     console.log data
-  #     return
 
 sizePlanets = () ->
-  $.each $('.planet'), ->
-    _this = $(this)
-    width = parseInt(_this.attr('data-size'))/700
-    console.log width
-    _this.css('width', width).css('height', width)
-    return
+  i = 0
+  while i < planetContainers.length
+    _this = planetContainers[i]
+    width = parseInt(_this.children[0].dataset.size) / 700
+    _this.children[0].style.width = width + 'px'
+    _this.children[0].style.height = width + 'px'
+    i++
   spacePlanets()
 
 spacePlanets = () ->
-  $.each $('.planet-container'), ->
-    _this = $(this)
-    width = _this.find('.planet').attr('data-distance')/1000000
-    _this.css('width', width).css('height', width)
-    return
+  i = 0
+  while i < planetContainers.length
+    _this = planetContainers[i]
+    width = _this.children[0].dataset.distance / 1000000
+    _this.style.width = width + 'px'
+    _this.style.height = width + 'px'
+    i++
   rotatePlanets()
 
 rotatePlanets = () ->
-  $.each $('.planet-container'), ->
-    _this = $(this)
-    revTime = _this.find('.planet').attr('data-rev')*3 + 's'
-    console.log revTime
-    _this.css
-      '-webkit-animation': 'spinner'
-      '-webkit-animation-duration': revTime
-      '-webkit-animation-iteration-count': 'infinite'
-      '-webkit-animation-timing-function': 'linear'
+  i = 0;
+  while i < planetContainers.length
+    _this = planetContainers[i]
+    revTime = _this.children[0].dataset.rev * 3 + 's'
+    _this.style.animation = 'spinner'
+    _this.style.animationDuration = revTime
+    _this.style.animationIterationCount = 'infinite'
+    _this.style.animationTimingFunction = 'linear'
+    i++
